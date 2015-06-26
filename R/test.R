@@ -1,27 +1,6 @@
-test <- function(input){
-        newdata <- if (is.character(input) && file.exists(input)) {
-                read.csv(input)
+test <- function(x=""){
+        if (x == "") {
+                stop("Tell me x value!")
         }
-        else {
-                as.data.frame(input)
-        }
-        stopifnot("x" %in% names(newdata))
-        newdata$x <- as.numeric(newdata$x)
-        newdata$tv <- sqrt(newdata$x)
-        return(newdata)
-}
-
-test2 <- function (input) 
-{
-        newdata <- if (is.character(input) && file.exists(input)) {
-                read.csv(input)
-        }
-        else {
-                as.data.frame(input)
-        }
-        stopifnot("age" %in% names(newdata))
-        stopifnot("marital" %in% names(newdata))
-        newdata$age <- as.numeric(newdata$age)
-        newdata$tv <- as.vector(predict.gam(tv_model, newdata = newdata))
-        return(newdata)
+        list(message = paste("hello", x, "! This is", R.Version()$version.string))
 }
