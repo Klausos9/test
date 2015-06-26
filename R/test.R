@@ -6,7 +6,7 @@ test <- function(input){
                 as.data.frame(input)
         }
         stopifnot("x" %in% names(newdata))
-        newdata$x <- as.numeric(newdata$age)
+        newdata$x <- as.numeric(newdata$x)
         newdata$tv <- sqrt(newdata$x)
         return(newdata)
 }
